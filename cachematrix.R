@@ -1,5 +1,5 @@
 ## set of functions that create a "special" matrix that can cache its inverse
-## and calculate the matri inverse if it has not already been cached 
+## and calculate the matrix inverse if it has not already been cached 
 
 ## makeCacheMatrix creates a special "matrix" object that can cache its inverse
 
@@ -22,7 +22,7 @@ makeCacheMatrix <- function(x = matrix()) {
   setInverse <- function(mInverse) inverse <<- mInverse
   getInverse <- function(){return(inverse)}
   
-  # return a list with the available function associated with the special matrix
+  # return a list with the available functions associated with the special matrix
   return(list(setMatrix = setMatrix, getMatrix = getMatrix, setInverse = setInverse, getInverse = getInverse))
 }
 
@@ -40,7 +40,7 @@ cacheSolve <- function(x, ...) {
           return(inverseM)
         }
         
-        # if cached inverse in null calculte inverse
+        # if cached inverse in null calculate inverse
         matrix1 <- x$getMatrix() 
         inverseM <- solve(matrix1,...)
         x$setInverse(inverseM)
